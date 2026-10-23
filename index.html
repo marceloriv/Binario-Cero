@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e4e6dd">
+  <meta name="description"
+    content="Laboratorio interactivo para entender los números binarios desde cero: bits, potencias de dos, conversiones y práctica guiada.">
+  <title>Binario desde cero · Laboratorio interactivo</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+
+<body>
+  <header class="shell topbar">
+    <div class="brand"><span class="brandmark">01</span><span>Binario desde cero</span></div>
+    <nav class="toplinks" aria-label="Accesos rápidos"><a href="#origen">La idea</a><a
+        href="#construye">Constructor</a><a href="#convertir">Conversor</a><a href="#practica">Desafíos</a></nav>
+  </header>
+  <main>
+    <div class="shell hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Laboratorio de aprendizaje</div>
+        <h1>Aprende binario.<br><span>Entiende cada bit.</span></h1>
+        <p class="intro">No necesitas saber programación ni matemáticas avanzadas. Enciende y apaga bits, convierte
+          números paso a paso y descubre por qué las computadoras usan ceros y unos.</p>
+        <div class="hero-actions"><a class="primary" href="#origen">Empezar desde
+            cero</a><a class="secondary" href="#construye">Experimentar con bits</a></div>
+      </div>
+      <div class="hero-visual" aria-label="Ejemplo de la representación binaria del número trece">
+        <div class="signal-head"><span>Vista previa · número 13</span><b>Base 2</b></div>
+        <div class="signal-bits">
+          <div class="signal-bit on">1<small>8</small></div>
+          <div class="signal-bit on">1<small>4</small></div>
+          <div class="signal-bit">0<small>2</small></div>
+          <div class="signal-bit on">1<small>1</small></div>
+        </div>
+        <div class="signal-foot">
+          <div><span>En decimal</span><strong>13</strong><small>El número de siempre</small></div>
+          <div class="signal-eq">8 + 4 + 0 + 1<br>= 13</div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-wrap">
+      <nav class="shell chapters" aria-label="Capítulos"><a href="#origen" class="active">01 · El origen</a><a
+          href="#construye">02 · Enciende bits</a><a href="#convertir">03 · Convierte</a><a href="#leer">04 · Lee
+          binarios</a><a href="#practica">05 · Practica</a></nav>
+    </div>
+    <section id="origen" class="shell lesson">
+      <div class="section-title">
+        <div class="step-tag">Capítulo 01 · La idea fundamental</div>
+        <h2>¿De dónde salen los ceros y unos?</h2>
+        <p>Un número es una cantidad. La forma en que lo escribimos depende del sistema que usamos.</p>
+      </div>
+      <div class="two-col">
+        <article class="explanation">
+          <h3>En decimal usamos 10 símbolos</h3>
+          <p>Los números cotidianos usan dígitos del <strong>0 al 9</strong>. Cuando ya no alcanza una posición,
+            añadimos otra.</p>
+          <div class="place-row">
+            <div class="place"><small>1000</small><strong>0</strong></div>
+            <div class="place"><small>100</small><strong>1</strong></div>
+            <div class="place"><small>10</small><strong>3</strong></div>
+            <div class="place"><small>1</small><strong>7</strong></div>
+          </div>
+          <p><span class="formula">137 = 100 + 30 + 7</span>. Cada posición vale diez veces la que tiene a su derecha.
+            Se llama <strong>base 10</strong>.</p>
+        </article>
+        <article class="explanation">
+          <h3>En binario usamos solo 2 símbolos</h3>
+          <p>El <strong>0</strong> representa ausencia de valor en esa posición y el <strong>1</strong> representa que
+            ese valor cuenta. No existen los dígitos 2 a 9.</p>
+          <div class="place-row">
+            <div class="place"><small>8</small><strong>1</strong></div>
+            <div class="place"><small>4</small><strong>1</strong></div>
+            <div class="place"><small>2</small><strong>0</strong></div>
+            <div class="place"><small>1</small><strong>1</strong></div>
+          </div>
+          <p><span class="formula">1101 = 8 + 4 + 0 + 1 = 13</span>. Cada posición vale <strong>el doble</strong> de la
+            situada a su derecha. Se llama <strong>base 2</strong>.</p>
+        </article>
+      </div>
+      <div class="two-col mt-lg">
+        <div class="panel">
+          <h3>¿Por qué las computadoras lo usan?</h3>
+          <p>Los circuitos digitales pueden representar dos estados distinguibles, como una señal de voltaje bajo o
+            alto. Esos estados se interpretan como <strong>0</strong> y <strong>1</strong>. Con muchos bits se
+            representan números, letras, imágenes y más.</p>
+          <div class="guide">Un <strong>bit</strong> es un dígito binario: puede valer 0 o 1. Ocho bits forman un
+            <strong>byte</strong>.</div>
+        </div>
+        <div class="panel">
+          <h3>Los valores crecen duplicándose</h3>
+          <p>Al moverte de derecha a izquierda: 1, 2, 4, 8, 16, 32… Cada lugar corresponde a una potencia de 2.</p>
+          <div class="power-chart">
+            <div class="power-line"><span>2⁰</span><span class="power-track"><span class="power-fill"></span></span><strong>1</strong></div>
+            <div class="power-line"><span>2¹</span><span class="power-track"><span class="power-fill"></span></span><strong>2</strong></div>
+            <div class="power-line"><span>2²</span><span class="power-track"><span class="power-fill"></span></span><strong>4</strong></div>
+            <div class="power-line"><span>2³</span><span class="power-track"><span class="power-fill"></span></span><strong>8</strong></div>
+            <div class="power-line"><span>2⁴</span><span class="power-track"><span class="power-fill"></span></span><strong>16</strong></div>
+            <div class="power-line"><span>2⁵</span><span class="power-track"><span class="power-fill"></span></span><strong>32</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="callout"><strong>Regla central:</strong> el binario no cambia el número; cambia cómo se escribe. El
+        trece decimal y el 1101 binario representan exactamente la misma cantidad.</div>
+    </section>
+    <section id="construye" class="shell lesson">
+      <div class="section-title">
+        <div class="step-tag">Capítulo 02 · Experimenta</div>
+        <h2>Construye números encendiendo bits</h2>
+        <p>Pulsa cada casilla. Un bit encendido (1) suma su valor; apagado (0) no suma nada. Observa cómo cambia el
+          número decimal.</p>
+      </div>
+      <div class="panel console">
+        <div class="builder-meta">
+          <div class="toggles" role="group" aria-label="Cantidad de bits"><button class="toggle" data-width="4"
+              aria-pressed="false">4 bits</button><button class="toggle active" data-width="8" aria-pressed="true">8
+              bits</button><button class="toggle" data-width="16" aria-pressed="false">16 bits</button></div><button
+            id="resetBuilder" class="small-btn">Apagar todos</button>
+        </div>
+        <div class="mini-label">Pulsa para cambiar cada bit · valor de derecha a izquierda: 1, 2, 4, 8...</div>
+        <div id="bitsBuilder" class="bits-grid" role="group"
+          aria-label="Interruptores para construir un número binario"></div>
+        <div class="result-strip" aria-live="polite">
+          <div>
+            <div class="result-label">Número binario</div>
+            <div id="builderBinary" class="result-value code">00001101</div>
+          </div>
+          <div class="equals">=</div>
+          <div>
+            <div class="result-label">Número decimal</div>
+            <div id="builderDecimal" class="result-value">13</div>
+          </div>
+        </div>
+        <div id="builderSum" class="sum-line" aria-live="polite">8 + 4 + 1 = 13</div>
+        <div class="guide">Experimento: enciende solamente el último bit de la derecha y obtendrás 1. Enciende el
+          siguiente y obtendrás 2. Enciende ambos y obtendrás 3.</div>
+      </div>
+    </section>
+    <section id="convertir" class="shell lesson">
+      <div class="section-title">
+        <div class="step-tag">Capítulo 03 · De decimal a binario</div>
+        <h2>Convierte cualquier número, paso a paso</h2>
+        <p>Un método que siempre funciona con números enteros no negativos: dividir por 2, guardar cada resto y leer los
+          restos desde el último hasta el primero.</p>
+      </div>
+      <div class="panel console">
+        <div class="control-row">
+          <div class="field"><label for="decimalInput">Número decimal (de 0 a 65.535)</label><input id="decimalInput"
+              type="number" min="0" max="65535" step="1" value="13" inputmode="numeric"></div><button class="primary"
+            id="exampleDecimal">Probar otro ejemplo</button>
+        </div>
+        <div id="decimalError" class="error" role="status"></div>
+        <div class="converter-output">
+          <div class="mini-label">Resultado en binario</div>
+          <div id="decimalResult" class="code-big" aria-live="polite">1101</div><small>Sin ceros innecesarios a la
+            izquierda · 0 también se escribe 0</small>
+        </div>
+        <div class="two-col">
+          <div>
+            <h3>1. Divide entre dos</h3>
+            <p>El resto siempre será <strong>0 o 1</strong>. Cada división crea un dígito binario, empezando por el de
+              la derecha.</p>
+            <div id="divisionSteps" class="steps"></div>
+          </div>
+          <div>
+            <h3>2. Lee de abajo hacia arriba</h3>
+            <p>Los restos aparecen desde el bit de menor valor hasta el de mayor valor. Al invertir su orden obtienes el
+              binario.</p>
+            <div id="remaindersExplanation" class="guide"></div>
+            <h3>3. Comprueba sumando potencias</h3>
+            <p>Los bits que valen 1 indican las potencias de 2 que debes sumar.</p>
+            <div id="decimalPowers"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="leer" class="shell lesson">
+      <div class="section-title">
+        <div class="step-tag">Capítulo 04 · De binario a decimal</div>
+        <h2>Aprende a leer un número binario</h2>
+        <p>Empezando por el último dígito de la derecha, asigna 1, 2, 4, 8, 16… y suma solo los valores donde hay un 1.
+        </p>
+      </div>
+      <div class="panel console">
+        <div class="control-row">
+          <div class="field"><label for="binaryInput">Escribe un número binario (hasta 16 bits)</label><input
+              id="binaryInput" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" maxlength="16"
+              value="1101" placeholder="Ejemplo: 10110"></div><button id="binaryExample" class="primary">Probar otro
+            ejemplo</button>
+        </div>
+        <div id="binaryError" class="error" role="status"></div>
+        <div class="converter-output">
+          <div class="mini-label">Resultado en decimal</div>
+          <div id="binaryResult" class="code-big" aria-live="polite">13</div><small>Cada posición tiene un valor, aunque
+            el dígito sea cero.</small>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Posición</th>
+                <th>Bit</th>
+                <th>Valor de la posición</th>
+                <th>Aporta</th>
+              </tr>
+            </thead>
+            <tbody id="binaryBreakdown"></tbody>
+          </table>
+        </div>
+        <div id="binarySum" class="guide"></div>
+      </div>
+    </section>
+    <section id="practica" class="shell lesson">
+      <div class="section-title">
+        <div class="step-tag">Capítulo 05 · Ponlo a prueba</div>
+        <h2>Resuelve desafíos y verifica tu respuesta</h2>
+        <p>Responde con binarios o decimales. La corrección muestra el procedimiento, no solo si acertaste.</p>
+      </div>
+      <div class="panel console">
+        <div class="practice-top">
+          <div class="toggles" role="group" aria-label="Dificultad"><button class="toggle active" data-level="easy"
+              aria-pressed="true">Básico</button><button class="toggle" data-level="medium"
+              aria-pressed="false">Intermedio</button><button class="toggle" data-level="hard"
+              aria-pressed="false">Avanzado</button></div><span id="practiceScore" class="practice-score">0 correctos de
+            0 intentos</span>
+        </div>
+        <p id="practiceQuestion" class="practice-question">...</p>
+        <div class="control-row">
+          <div class="field"><label for="practiceAnswer">Tu respuesta</label><input id="practiceAnswer"
+              autocomplete="off" inputmode="numeric" placeholder="Escribe aquí"></div><button id="checkAnswer"
+            class="primary">Comprobar</button>
+        </div>
+        <div class="practice-actions"><button class="small-btn" id="practiceHint">Ver pista</button><button
+            class="small-btn" id="practiceSolution">Ver solución</button><button class="small-btn"
+            id="nextQuestion">Siguiente ejercicio →</button></div>
+        <div id="practiceFeedback" class="feedback" aria-live="polite"></div>
+      </div>
+      <div class="two-col mt-lg">
+        <div class="panel">
+          <h3>Patrones útiles</h3>
+          <p><strong>1, 2, 4, 8, 16, 32, 64, 128</strong> son potencias sucesivas de 2. Si un binario termina en 0,
+            representa un número par; si termina en 1, es impar.</p>
+        </div>
+        <div class="panel">
+          <h3>¿Qué ocurre al añadir ceros?</h3>
+          <p><span class="formula">101 = 0101 = 00000101</span>. Los ceros a la <strong>izquierda</strong> no modifican
+            el valor. Pero añadir un 0 a la <strong>derecha</strong> duplica el número: <span class="formula">1010 =
+              10</span>, mientras <span class="formula">101 = 5</span>.</p>
+        </div>
+      </div>
+    </section>
+    <footer class="shell foot"><span>Binario desde cero · Funciona sin conexión a internet.</span><span>Base 2 · Bits ·
+        Conversión · Práctica guiada</span></footer>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
